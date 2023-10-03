@@ -8,8 +8,14 @@ public class GameManager : MonoBehaviour
     public event Action onMenu;
     public event Action onScan;
     public event Action onTeorico;
+    public event Action onVentanaEmergenteOpen;
+    public event Action onVentanaEmergenteClose;
+
 
     public static GameManager instance;
+
+    private Animator animatorController;
+    //[SerializeField] public string modelo;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -23,6 +29,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        animatorController = GetComponent<Animator>();
         MenuPrincipal();
     }
 
@@ -39,6 +46,16 @@ public class GameManager : MonoBehaviour
     public void Teorico()
     {
         onTeorico?.Invoke();
+    }
+    public void VentanaEmergenteOpen()
+    {
+        onVentanaEmergenteOpen?.Invoke();
+    }
+    public void VentanaEmergenteClose()
+    {
+       
+        onVentanaEmergenteClose?.Invoke();
+       
     }
     public void Close()
     {

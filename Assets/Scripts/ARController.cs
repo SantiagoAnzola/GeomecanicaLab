@@ -17,7 +17,7 @@ public class ARController : MonoBehaviour
     GameObject cardTemplate;
     public GameObject button;
     public Canvas canvas;
-
+    private string lastDetectedTargetName;
 
     private float top;
     private float bottom;
@@ -25,6 +25,7 @@ public class ARController : MonoBehaviour
     private void Start()
 
     {
+        lastDetectedTargetName = null;
         top = -60f+ getCanvasHeight();
         bottom = 60f;
 
@@ -35,19 +36,34 @@ public class ARController : MonoBehaviour
     {
         //buttonPosition = button.transform.position.y;
     }
+    private void Update()
+    {
+    }
     public void OnImageTargetDetected(ObserverBehaviour mObserverBehaviour)
     {
 
-        
+       
         var im = new InfoMaquinaController();
 
         string targetName = mObserverBehaviour.TargetName;
 
+        if (targetName != lastDetectedTargetName)
+        {
+            // Limpia las tarjetas y oculta el menú si se detectó un nuevo objetivo
+            LimpiarCards(false);
+            SlideMenu.SetActive(false);
+            moverBoton(false);
+        }
+
+        lastDetectedTargetName = targetName;
+
         switch (targetName)
         {
-             
+            
+
+
             case "QR Target":
-                SlideMenu.SetActive(true); ;
+               
                 Debug.Log("Bien: ----> Se identifico  Maquina1");
                 Maquina maquina1 = new Maquina(
                    "Máquina de Ensayo de Compresión",
@@ -70,7 +86,7 @@ public class ARController : MonoBehaviour
                 SetMaquinaInfo(maquina1);
                 break;
             case "QR Target Maquina2":
-                SlideMenu.SetActive(true); ;
+                
                 Debug.Log("Bien: ----> Se identifico  Maquina2");
                 Maquina maquina2 = new Maquina(
                     "Máquina de Ensayo de Tracción",
@@ -94,6 +110,18 @@ public class ARController : MonoBehaviour
             default:
                 Debug.Log("ERROR: ----> No se identifico ningun iMAGEtrack, targetname: " + targetName);
                 break;
+        }
+    }
+
+    public void OnImageTargetLost(ObserverBehaviour mObserverBehaviour)
+    {
+        string targetName = mObserverBehaviour.TargetName;
+
+        // Verifica si el objetivo que se ha perdido es el mismo que el último detectado
+        if (targetName == lastDetectedTargetName)
+        {
+            // Limpia las tarjetas y oculta el menú cuando se pierde el seguimiento
+            LimpiarCards(true);
         }
     }
     public float  getCanvasHeight()
@@ -168,8 +196,13 @@ public class ARController : MonoBehaviour
         cardTemplate.SetActive(true);
         if (lostTrak)
         {
+            Debug.Log("limpiar cards true, se mueve boton y se esconde el menu inferior");
             SlideMenu.SetActive(false);
             moverBoton(false);
+        }
+        else
+        {
+            Debug.Log("limpiar cards false, sin mover boton y sin esconder el menu inferior");
         }
         
     }
