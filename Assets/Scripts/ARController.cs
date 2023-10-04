@@ -43,7 +43,7 @@ public class ARController : MonoBehaviour
     {
 
        
-        var im = new InfoMaquinaController();
+        //var im = new InfoMaquinaController();
 
         string targetName = mObserverBehaviour.TargetName;
 
@@ -85,7 +85,7 @@ public class ARController : MonoBehaviour
 
                 SetMaquinaInfo(maquina1);
                 break;
-            case "QR Target Maquina2":
+            case "QR Target Maquina1":
                 
                 Debug.Log("Bien: ----> Se identifico  Maquina2");
                 Maquina maquina2 = new Maquina(
@@ -105,6 +105,28 @@ public class ARController : MonoBehaviour
                 SlideMenu.SetActive(true);
                 moverBoton(true);
                 SetMaquinaInfo(maquina2);
+
+                break;
+            case "QR Target Maquina2":
+                
+                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                Maquina maquina3 = new Maquina(
+                    "Máquina 2",
+                    "Esta máquina se utiliza para ..........................",
+                    "",
+                    "Fabricante C",
+                    "Modelo 12312",
+                    "Xwdswewr123",
+                    "2020-07-01",
+                    "En Funcionamiento",
+                    200000.0,
+                    "Laboratorio C"
+                );
+                
+                //LimpiarCards(false);
+                SlideMenu.SetActive(true);
+                moverBoton(true);
+                SetMaquinaInfo(maquina3);
 
                 break;
             default:

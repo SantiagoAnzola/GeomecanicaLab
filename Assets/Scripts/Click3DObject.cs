@@ -10,9 +10,9 @@ public class Click3DObject : MonoBehaviour
 
     [SerializeField] public GameObject sideMenu;
 
-    [SerializeField] public RawImage rawImageComponent; // Arrastra el componente Raw Image al Inspector
-    [SerializeField] public RenderTexture renderTextures; // Arrastra el Render Texture al Inspector
-    public GameObject[] animatorObjects; // Assign the GameObjects with Animators in the Inspector
+    [SerializeField] public RawImage rawImageComponent; 
+    [SerializeField] public RenderTexture renderTextures; 
+    public GameObject[] animatorObjects; 
 
     private AnimatorControllerScript[] animatorControllers;
     private void Start()
@@ -32,14 +32,6 @@ public class Click3DObject : MonoBehaviour
             AsignarTextura();
             animatorControllers[0].StartAnimation();
             animatorControllers[0].ResumeAnimation();
-            //foreach (var controller in animatorControllers)
-            //{
-            //    controller.StartAnimation();
-            //}
-            //foreach (var controller in animatorControllers)
-            //{
-            //    controller.ResumeAnimation();
-            //}
 
             GameManager.instance.VentanaEmergenteOpen();
         }

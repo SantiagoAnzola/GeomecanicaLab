@@ -10,6 +10,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] public GameObject scan;
     [SerializeField] public GameObject Teorico;
     [SerializeField] public GameObject ventanaEmergente;
+    [SerializeField] public GameObject popUpAlert;
     [SerializeField] public GameObject Canvas;
     private float canvasHeight;
     void Start()
@@ -19,6 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
         GameManager.instance.onTeorico += ActiveTeoricoView;
         GameManager.instance.onVentanaEmergenteOpen += ActiveVentanaEmergenteView;
         GameManager.instance.onVentanaEmergenteClose += DesActiveVentanaEmergenteView;
+        GameManager.instance.onPopUpAlertOpen += ActivePopUpAlertView;
+        GameManager.instance.onPopUpAlertClose += DesActivePopUpAlertView;
     }
 
     public void ActiveScanView()
@@ -53,6 +56,16 @@ public class NewBehaviourScript : MonoBehaviour
     {
         ventanaEmergente.transform.DOMoveY(-Screen.height, 0.2f);
         ventanaEmergente.transform.DOScale(new Vector3(0,0,0),0.2f);
+    }
+    private void ActivePopUpAlertView()
+    {
+        popUpAlert.transform.DOMoveY(+Screen.height/2, 0.2f);
+        popUpAlert.transform.DOScale(new Vector3(1,1,1),0.2f);
+    }
+    private void DesActivePopUpAlertView()
+    {
+        popUpAlert.transform.DOMoveY(-Screen.height, 0.2f);
+        popUpAlert.transform.DOScale(new Vector3(0,0,0),0.2f);
     }
 
 }

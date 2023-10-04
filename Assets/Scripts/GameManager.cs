@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public event Action onTeorico;
     public event Action onVentanaEmergenteOpen;
     public event Action onVentanaEmergenteClose;
+    public event Action onPopUpAlertOpen;
+    public event Action onPopUpAlertClose;
 
 
     public static GameManager instance;
@@ -57,8 +59,19 @@ public class GameManager : MonoBehaviour
         onVentanaEmergenteClose?.Invoke();
        
     }
+    public void PopAlertOpen()
+    {
+        onPopUpAlertOpen?.Invoke();
+    }
+    public void PopAlertClose()
+    {
+
+        onPopUpAlertClose?.Invoke();
+       
+    }
     public void Close()
     {
+        Debug.Log("Closing app");
         Application.Quit();
     }
 

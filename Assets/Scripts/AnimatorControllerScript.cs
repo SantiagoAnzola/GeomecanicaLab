@@ -19,12 +19,12 @@ public class AnimatorControllerScript : MonoBehaviour
 
     public void PauseAnimation()
     {
-        animator.speed = 0; // Pauses the animation by setting speed to 0
+        animator.speed = 0; 
     }
 
     public void ResumeAnimation()
     {
-        animator.speed = 0.3f; // Resumes the animation by setting speed to 1
+        animator.speed = 0.3f; 
     }
 }
 
