@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Text;
 
+
 public class InfoMaquinaController : MonoBehaviour
 {
 

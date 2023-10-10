@@ -18,19 +18,27 @@ public class ARController : MonoBehaviour
     public GameObject button;
     public Canvas canvas;
     private string lastDetectedTargetName;
-
+    public GameObject OrientacionEscanear;
+    public GameObject ExplicacionRotacion;
+    public GameObject VentanaEmergente;
     private float top;
     private float bottom;
 
     private void Start()
 
     {
+        
         lastDetectedTargetName = null;
         top = -60f+ getCanvasHeight();
         bottom = 60f;
 
         cardTemplate = transform.GetChild(0).gameObject;
         SlideMenu.SetActive(false);
+
+        RectTransform ventanaRect = VentanaEmergente.GetComponent<RectTransform>();
+        float newHeight = ventanaRect.rect.height ;
+        ventanaRect.anchoredPosition = new Vector2(ventanaRect.anchoredPosition.x, getCanvasHeight());
+        ventanaRect.sizeDelta = new Vector2(ventanaRect.sizeDelta.x, newHeight);
     }
     private void Awake()
     {
@@ -41,8 +49,8 @@ public class ARController : MonoBehaviour
     }
     public void OnImageTargetDetected(ObserverBehaviour mObserverBehaviour)
     {
-
-       
+        OrientacionEscanear.transform.localScale = Vector3.zero;
+        OrientacionRotacionController.instance.ExplicacionRotacionModelo();
         //var im = new InfoMaquinaController();
 
         string targetName = mObserverBehaviour.TargetName;
@@ -53,6 +61,7 @@ public class ARController : MonoBehaviour
             LimpiarCards(false);
             SlideMenu.SetActive(false);
             moverBoton(false);
+            //ExplicacionRotacionModelo();
         }
 
         lastDetectedTargetName = targetName;
@@ -221,6 +230,7 @@ public class ARController : MonoBehaviour
             Debug.Log("limpiar cards true, se mueve boton y se esconde el menu inferior");
             SlideMenu.SetActive(false);
             moverBoton(false);
+            OrientacionEscanear.transform.localScale = Vector3.one;
         }
         else
         {
@@ -228,6 +238,12 @@ public class ARController : MonoBehaviour
         }
         
     }
+    //public void ExplicacionRotacionModelo()
+    //{
+    //    ExplicacionRotacion.transform.localScale = (ExplicacionRotacion.transform.localScale == Vector3.one) ? 
+    //        Vector3.zero : Vector3.one;
+    //    //ExplicacionRotacion.transform.localScale = Vector3.one;
+    //}
 
     public static string AgregarEspacioAntesDeMayuscula(string input)
     {
