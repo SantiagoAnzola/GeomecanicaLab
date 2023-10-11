@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public event Action onVentanaEmergenteClose;
     public event Action onPopUpAlertOpen;
     public event Action onPopUpAlertClose;
+    public event Action onTeoricoMascota;
 
 
     public static GameManager instance;
@@ -48,6 +49,10 @@ public class GameManager : MonoBehaviour
     public void Teorico()
     {
         onTeorico?.Invoke();
+    }
+    public void TeoricoMascota()
+    {
+        onTeoricoMascota?.Invoke();
     }
     public void VentanaEmergenteOpen()
     {

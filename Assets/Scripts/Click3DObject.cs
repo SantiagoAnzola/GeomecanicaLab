@@ -2,6 +2,7 @@ using DanielLochner.Assets.SimpleSideMenu;
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,10 @@ public class Click3DObject : MonoBehaviour
 
     [SerializeField] public GameObject sideMenu;
 
-    [SerializeField] public RawImage rawImageComponent; 
+    [SerializeField] public RawImage rawImageComponent;
+    [SerializeField] public TextMeshProUGUI textComponent;
+    [SerializeField] public string textRawImageComponent;
+
     [SerializeField] public RenderTexture renderTextures; 
     public GameObject[] animatorObjects; 
 
@@ -49,5 +53,6 @@ public class Click3DObject : MonoBehaviour
     {
 
         rawImageComponent.texture = renderTextures;
+        textComponent.text = textRawImageComponent;
     }
 }

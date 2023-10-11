@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] public GameObject ventanaEmergente;
     [SerializeField] public GameObject popUpAlert;
     [SerializeField] public GameObject Canvas;
+    [SerializeField] public GameObject TeoricoMascota;
     private CanvasGroup canvasGroup;
 
 
@@ -28,6 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
         GameManager.instance.onVentanaEmergenteClose += DesActiveVentanaEmergenteView;
         GameManager.instance.onPopUpAlertOpen += ActivePopUpAlertView;
         GameManager.instance.onPopUpAlertClose += DesActivePopUpAlertView;
+        GameManager.instance.onTeoricoMascota += ActiveTeoricoMascotaView;
     }
 
     public void ActiveScanView()
@@ -50,8 +52,14 @@ public class NewBehaviourScript : MonoBehaviour
     {
         menuPrincipal.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
         menuPrincipal.transform.DOMoveX(-Screen.width / 2, 0.2f);
-
         Teorico.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
+        TeoricoMascota.transform.DOScale(new Vector3(0, 0, 0),0.2f);
+    }
+    private void ActiveTeoricoMascotaView()
+    {
+        scan.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
+
+        TeoricoMascota.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
     }
     private void ActiveVentanaEmergenteView()
     {

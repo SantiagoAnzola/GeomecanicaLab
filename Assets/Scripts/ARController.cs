@@ -122,7 +122,7 @@ public class ARController : MonoBehaviour
                 Maquina maquina3 = new Maquina(
                     "Máquina 2",
                     "Esta máquina se utiliza para ..........................",
-                    "",
+                    "asdasdas",
                     "Fabricante C",
                     "Modelo 12312",
                     "Xwdswewr123",
@@ -136,6 +136,50 @@ public class ARController : MonoBehaviour
                 SlideMenu.SetActive(true);
                 moverBoton(true);
                 SetMaquinaInfo(maquina3);
+
+                break;
+            case "QR Target Maquina3":
+                
+                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                Maquina maquina4 = new Maquina(
+                    "Máquina 3",
+                    "Esta máquina se utiliza para ..........................",
+                    "rerewrwe",
+                    "Fabricante D",
+                    "Modelo 3434",
+                    "423423423",
+                    "2010-07-03",
+                    "En Funcionamiento",
+                    100000.0,
+                    "Laboratorio D"
+                );
+                
+                //LimpiarCards(false);
+                SlideMenu.SetActive(true);
+                moverBoton(true);
+                SetMaquinaInfo(maquina4);
+
+                break;
+            case "QR Target Maquina4":
+                
+                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                Maquina maquina5 = new Maquina(
+                    "Máquina 4",
+                    "Esta máquina se utiliza para ..........................",
+                    "edcgdfgtyt",
+                    "Fabricante E",
+                    "Modelo 2143432df",
+                    "gfgwe4543",
+                    "2015-01-03",
+                    "En Funcionamiento",
+                    178000.0,
+                    "Laboratorio E"
+                );
+                
+                //LimpiarCards(false);
+                SlideMenu.SetActive(true);
+                moverBoton(true);
+                SetMaquinaInfo(maquina5);
 
                 break;
             default:
