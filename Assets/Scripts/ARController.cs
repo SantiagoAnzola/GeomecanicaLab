@@ -55,12 +55,18 @@ public class ARController : MonoBehaviour
 
         string targetName = mObserverBehaviour.TargetName;
 
+        Transform targetTransform = mObserverBehaviour.transform.GetChild(0);
+        targetTransform.rotation = Quaternion.Euler(Vector3.zero);
+        Debug.Log("Transform name: " + targetTransform.name);
+
+
         if (targetName != lastDetectedTargetName)
         {
             // Limpia las tarjetas y oculta el menú si se detectó un nuevo objetivo
             LimpiarCards(false);
             SlideMenu.SetActive(false);
             moverBoton(false);
+            
             //ExplicacionRotacionModelo();
         }
 
@@ -73,9 +79,9 @@ public class ARController : MonoBehaviour
 
             case "QR Target":
                
-                Debug.Log("Bien: ----> Se identifico  Maquina1");
+              
                 Maquina maquina1 = new Maquina(
-                   "Máquina de Ensayo de Compresión",
+                   "Camara",
                    "Esta máquina se utiliza para realizar ensayos de compresión en muestras de suelo.",
                    "Medir la resistencia a la compresión de materiales geotécnicos",
                    "Fabricante A",
@@ -96,9 +102,9 @@ public class ARController : MonoBehaviour
                 break;
             case "QR Target Maquina1":
                 
-                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                
                 Maquina maquina2 = new Maquina(
-                    "Máquina de Ensayo de Tracción",
+                    "Prensa",
                     "Esta máquina se utiliza para realizar ensayos de tracción en probetas de roca.",
                     "Medir la resistencia a la tracción de muestras geológicas.",
                     "Fabricante B",
@@ -118,9 +124,9 @@ public class ARController : MonoBehaviour
                 break;
             case "QR Target Maquina2":
                 
-                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                
                 Maquina maquina3 = new Maquina(
-                    "Máquina 2",
+                    "Sensor de cambio volumetrico",
                     "Esta máquina se utiliza para ..........................",
                     "asdasdas",
                     "Fabricante C",
@@ -140,9 +146,9 @@ public class ARController : MonoBehaviour
                 break;
             case "QR Target Maquina3":
                 
-                Debug.Log("Bien: ----> Se identifico  Maquina2");
+                
                 Maquina maquina4 = new Maquina(
-                    "Máquina 3",
+                    "Controlador de presión de agua de la cámara",
                     "Esta máquina se utiliza para ..........................",
                     "rerewrwe",
                     "Fabricante D",
@@ -160,11 +166,33 @@ public class ARController : MonoBehaviour
                 SetMaquinaInfo(maquina4);
 
                 break;
+            case "QR Target Maquina3_1":
+                
+               
+                Maquina maquina7 = new Maquina(
+                    "Controlador de contra-presión de agua de la cámara",
+                    "Esta máquina se utiliza para ..........................",
+                    "rerewrwe",
+                    "Fabricante D",
+                    "Modelo 3434",
+                    "423423423",
+                    "2010-07-03",
+                    "En Funcionamiento",
+                    100000.0,
+                    "Laboratorio D"
+                );
+                
+                //LimpiarCards(false);
+                SlideMenu.SetActive(true);
+                moverBoton(true);
+                SetMaquinaInfo(maquina7);
+
+                break;
             case "QR Target Maquina4":
                 
-                Debug.Log("Bien: ----> Se identifico  Maquina2");
+               
                 Maquina maquina5 = new Maquina(
-                    "Máquina 4",
+                    "Sistema de válvulas",
                     "Esta máquina se utiliza para ..........................",
                     "edcgdfgtyt",
                     "Fabricante E",
@@ -180,6 +208,28 @@ public class ARController : MonoBehaviour
                 SlideMenu.SetActive(true);
                 moverBoton(true);
                 SetMaquinaInfo(maquina5);
+
+                break;
+            case "QR Target Maquina5":
+                
+                
+                Maquina maquina6 = new Maquina(
+                    "Emisor de actuadores y sensores",
+                    "Esta máquina se utiliza para ..........................",
+                    "edcgdfgtyt",
+                    "Fabricante E",
+                    "Modelo 2143432df",
+                    "gfgwe4543",
+                    "2015-01-03",
+                    "En Funcionamiento",
+                    178000.0,
+                    "Laboratorio E"
+                );
+                
+                //LimpiarCards(false);
+                SlideMenu.SetActive(true);
+                moverBoton(true);
+                SetMaquinaInfo(maquina6);
 
                 break;
             default:
@@ -259,7 +309,7 @@ public class ARController : MonoBehaviour
         SlideMenu.SetActive(true);
         int childCount = transform.childCount;
 
-
+        
         for (int i = 1; i < childCount; i++)
         {
 

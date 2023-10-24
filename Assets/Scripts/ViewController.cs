@@ -67,8 +67,8 @@ public class NewBehaviourScript : MonoBehaviour
         child0.transform.DOMoveY(Screen.height/2, 0.0f);
 
         GameObject child = ventanaEmergente.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(Screen.height/2, 0.2f);
-        child.transform.DOScale(new Vector3(1,1,1),0.2f);
+        child.transform.DOMoveY(Screen.height/2, 0.2f).SetEase(Ease.OutQuad); ;
+        child.transform.DOScale(new Vector3(1,1,1),0.2f).SetEase(Ease.OutQuad); ;
     }
     private void DesActiveVentanaEmergenteView()
     {
@@ -76,8 +76,8 @@ public class NewBehaviourScript : MonoBehaviour
         child0.transform.DOMoveY(-Screen.height, 0.0f);
 
         GameObject child = ventanaEmergente.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(-Screen.height, 0.2f);
-        child.transform.DOScale(new Vector3(0,0,0),0.2f);
+        child.transform.DOMoveY(-Screen.height, 0.2f).SetEase(Ease.InQuad); ;
+        child.transform.DOScale(new Vector3(0,0,0),0.2f).SetEase(Ease.InQuad); ;
     }
     private void ActivePopUpAlertView()
     {
@@ -86,8 +86,8 @@ public class NewBehaviourScript : MonoBehaviour
         
         popUpAlert.transform.DOScale(new Vector3(1, 1, 1), 0.0f);
         GameObject child = popUpAlert.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(+Screen.height/2, 0.2f);
-        child.transform.DOScale(new Vector3(1,1,1),0.2f);
+        child.transform.DOMoveY(+Screen.height/2, 0.2f).SetEase(Ease.OutQuad); 
+        child.transform.DOScale(new Vector3(1,1,1),0.2f).SetEase(Ease.OutQuad); 
 
         GameObject child0 = popUpAlert.transform.GetChild(0).gameObject;
         child0.transform.DOMoveY(+Screen.height / 2, 0.0f);
@@ -101,8 +101,8 @@ public class NewBehaviourScript : MonoBehaviour
         GameObject child0 = popUpAlert.transform.GetChild(0).gameObject;
         child0.transform.DOMoveY(-Screen.height, 0.0f);
         GameObject child = popUpAlert.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(-Screen.height, 0.2f);
-        child.transform.DOScale(new Vector3(0,0,0),0.2f);
+        child.transform.DOMoveY(-Screen.height, 0.2f).SetEase(Ease.InQuad); ;
+        child.transform.DOScale(new Vector3(0,0,0),0.2f).SetEase(Ease.InQuad); ;
     }
 
 }

@@ -6,7 +6,7 @@ RenderTexture:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Part1Model2
+  m_Name: "Model4_Controlador_de_presi\xF3n_de_Agua_de_la_c\xE1mara"
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
