@@ -38,6 +38,8 @@ public class NewBehaviourScript : MonoBehaviour
         menuPrincipal.transform.DOMoveX(-Screen.width, 0.2f);
 
         scan.transform.DOScale(new Vector3(1, 1, 1),0.2f);
+
+        VuforiaCamaraController.Instance.ActivarCamaraVuforia();
     }
     public void ActiveMenuView()
     {
@@ -47,9 +49,12 @@ public class NewBehaviourScript : MonoBehaviour
 
         menuPrincipal.transform.DOScale(new Vector3(1,1,1), 0.2f);
         menuPrincipal.transform.DOMoveX(Screen.width/2, 0.2f);
+
+        VuforiaCamaraController.Instance.DesactivarCamaraVuforia();
     }
     private void ActiveTeoricoView()
     {
+        VuforiaCamaraController.Instance.DesactivarCamaraVuforia();
         menuPrincipal.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
         menuPrincipal.transform.DOMoveX(-Screen.width / 2, 0.2f);
         Teorico.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
