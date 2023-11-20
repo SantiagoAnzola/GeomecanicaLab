@@ -3,6 +3,7 @@ using DanielLochner.Assets.SimpleSideMenu;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,8 +29,10 @@ public class Click3DObject : MonoBehaviour
     private bool actualizar=false;
     private bool mostarCarga = false;
     private bool esCargado = false;
+    private AudioSource sound;
     private void Start()
     {
+        sound = GetComponent<AudioSource>();
         pantallaOscura = GameObject.Find("PantallaOscura");
         cargarImagen.enabled = false;
         animatorControllers = new AnimatorControllerScript[animatorObjects.Length];
@@ -89,20 +92,23 @@ public class Click3DObject : MonoBehaviour
                 }
 
             }
+            else
+            {
+                actualizar = true;
+            }
         }
-        else if (actualizar || Input.touchCount ==2)
+        else if (actualizar || Input.touchCount ==2|| Input.touchCount <= 0)
         {
             indicadorTiempo -= Time.deltaTime;
             cargarImagen.fillAmount = indicadorTiempo;
-
             if (indicadorTiempo <=0 )
             {
                 indicadorTiempo = 0.0f;
                 cargarImagen.fillAmount = 0.0f;
                 actualizar = false;
                 cargarImagen.enabled = false;
-                pantallaOscura.transform.localScale = Vector3.zero;
                 mostarCarga = false;
+                pantallaOscura.transform.localScale = Vector3.zero;
             }
         }
 
@@ -123,7 +129,7 @@ public class Click3DObject : MonoBehaviour
             AsignarTextura();
             animatorControllers[0].StartAnimation();
             animatorControllers[0].ResumeAnimation();
-
+            sound.Play();
             GameManager.instance.VentanaEmergenteOpen();
         }
     }

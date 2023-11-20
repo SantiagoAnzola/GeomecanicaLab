@@ -15,6 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] public GameObject popUpAlert;
     [SerializeField] public GameObject Canvas;
     [SerializeField] public GameObject TeoricoMascota;
+    [SerializeField] public GameObject ImageContentTeoricoMascota;
     private CanvasGroup canvasGroup;
 
 
@@ -30,6 +31,7 @@ public class NewBehaviourScript : MonoBehaviour
         GameManager.instance.onPopUpAlertOpen += ActivePopUpAlertView;
         GameManager.instance.onPopUpAlertClose += DesActivePopUpAlertView;
         GameManager.instance.onTeoricoMascota += ActiveTeoricoMascotaView;
+        GameManager.instance.onImageContentTeoricoMascota += minimizeTeoricoImage;
     }
 
     public void ActiveScanView()
@@ -37,7 +39,7 @@ public class NewBehaviourScript : MonoBehaviour
         menuPrincipal.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
         menuPrincipal.transform.DOMoveX(-Screen.width, 0.2f);
 
-        scan.transform.DOScale(new Vector3(1, 1, 1),0.2f);
+        scan.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
 
         VuforiaCamaraController.Instance.ActivarCamaraVuforia();
     }
@@ -47,8 +49,8 @@ public class NewBehaviourScript : MonoBehaviour
 
         Teorico.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
 
-        menuPrincipal.transform.DOScale(new Vector3(1,1,1), 0.2f);
-        menuPrincipal.transform.DOMoveX(Screen.width/2, 0.2f);
+        menuPrincipal.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
+        menuPrincipal.transform.DOMoveX(Screen.width / 2, 0.2f);
 
         VuforiaCamaraController.Instance.DesactivarCamaraVuforia();
     }
@@ -58,22 +60,22 @@ public class NewBehaviourScript : MonoBehaviour
         menuPrincipal.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
         menuPrincipal.transform.DOMoveX(-Screen.width / 2, 0.2f);
         Teorico.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
-        TeoricoMascota.transform.DOScale(new Vector3(0, 0, 0),0.2f);
+        TeoricoMascota.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
+        scan.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
     }
     private void ActiveTeoricoMascotaView()
     {
         scan.transform.DOScale(new Vector3(0, 0, 0), 0.2f);
-
         TeoricoMascota.transform.DOScale(new Vector3(1, 1, 1), 0.2f);
     }
     private void ActiveVentanaEmergenteView()
     {
         GameObject child0 = ventanaEmergente.transform.GetChild(0).gameObject;
-        child0.transform.DOMoveY(Screen.height/2, 0.0f);
+        child0.transform.DOMoveY(Screen.height / 2, 0.0f);
 
         GameObject child = ventanaEmergente.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(Screen.height/2, 0.2f).SetEase(Ease.OutQuad); ;
-        child.transform.DOScale(new Vector3(1,1,1),0.2f).SetEase(Ease.OutQuad); ;
+        child.transform.DOMoveY(Screen.height / 2, 0.2f).SetEase(Ease.OutQuad); ;
+        child.transform.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.OutQuad); ;
     }
     private void DesActiveVentanaEmergenteView()
     {
@@ -82,17 +84,17 @@ public class NewBehaviourScript : MonoBehaviour
 
         GameObject child = ventanaEmergente.transform.GetChild(1).gameObject;
         child.transform.DOMoveY(-Screen.height, 0.2f).SetEase(Ease.InQuad); ;
-        child.transform.DOScale(new Vector3(0,0,0),0.2f).SetEase(Ease.InQuad); ;
+        child.transform.DOScale(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.InQuad); ;
     }
     private void ActivePopUpAlertView()
     {
 
         //canvasGroup.alpha = 98 / 255.0f;
-        
+
         popUpAlert.transform.DOScale(new Vector3(1, 1, 1), 0.0f);
         GameObject child = popUpAlert.transform.GetChild(1).gameObject;
-        child.transform.DOMoveY(+Screen.height/2, 0.2f).SetEase(Ease.OutQuad); 
-        child.transform.DOScale(new Vector3(1,1,1),0.2f).SetEase(Ease.OutQuad); 
+        child.transform.DOMoveY(+Screen.height / 2, 0.2f).SetEase(Ease.OutQuad);
+        child.transform.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.OutQuad);
 
         GameObject child0 = popUpAlert.transform.GetChild(0).gameObject;
         child0.transform.DOMoveY(+Screen.height / 2, 0.0f);
@@ -107,7 +109,11 @@ public class NewBehaviourScript : MonoBehaviour
         child0.transform.DOMoveY(-Screen.height, 0.0f);
         GameObject child = popUpAlert.transform.GetChild(1).gameObject;
         child.transform.DOMoveY(-Screen.height, 0.2f).SetEase(Ease.InQuad); ;
-        child.transform.DOScale(new Vector3(0,0,0),0.2f).SetEase(Ease.InQuad); ;
+        child.transform.DOScale(new Vector3(0, 0, 0), 0.2f).SetEase(Ease.InQuad); ;
+    }
+
+    private void minimizeTeoricoImage (){
+        ImageContentTeoricoMascota.transform.localScale = Vector3.zero;
     }
 
 }

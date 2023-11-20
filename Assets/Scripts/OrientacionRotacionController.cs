@@ -6,6 +6,7 @@ public class OrientacionRotacionController : MonoBehaviour
 {
     private int touchCount = 0;
     public static OrientacionRotacionController instance;
+    private bool mostrarOprimir=false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -20,26 +21,7 @@ public class OrientacionRotacionController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.touchCount > 0)
-        {
-
-            Touch touch = Input.GetTouch(0); // Obtener el primer toque
-            
-            // Verificar si el toque colisiona con el Collider del panel
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(touch.position);
-
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this)
-            {
-                Debug.Log("--------------> CLICK");
-                
-                ExplicacionRotacionModelo();
-                touchCount++;
-
-                Debug.Log(touchCount);
-
-            }
-        }
+       
 
     }
   
@@ -48,24 +30,29 @@ public class OrientacionRotacionController : MonoBehaviour
         touchCount++;
         Debug.Log("click, --->   TouchCount: " + touchCount);
     }
+    public void setMostrarOprimir(bool mostrar)
+    {
+        mostrarOprimir = mostrar;
+    }
     public void ExplicacionRotacionModelo()
     {
+        Debug.Log("EXPLICACION ROTACION-MODEO");
         transform.localScale = Vector3.one;
 
         //transform.GetChild(0).localScale = (transform.localScale == Vector3.one) ?
         //Vector3.zero : Vector3.one;
 
-        if (touchCount<1)
+        if (touchCount < 1)
         {
-           
+
             transform.GetChild(0).localScale = Vector3.one;
         }
-        else if(touchCount>=1 && touchCount<2)
+        else if (touchCount >= 1 && touchCount < 2)
         {
             transform.GetChild(0).localScale = Vector3.zero;
             transform.GetChild(1).localScale = Vector3.one;
         }
-        else if (touchCount >= 2 && touchCount < 3)
+        else if ((touchCount >= 2 && touchCount < 3) && mostrarOprimir)
         {
             transform.GetChild(0).localScale = Vector3.zero;
             transform.GetChild(1).localScale = Vector3.zero;
@@ -78,7 +65,11 @@ public class OrientacionRotacionController : MonoBehaviour
             transform.GetChild(2).localScale = Vector3.zero;
             transform.localScale = Vector3.zero;
         }
-        
+
         //ExplicacionRotacion.transform.localScale = Vector3.one;
+    }
+    public void Reset()
+    {
+        touchCount = 0;
     }
 }

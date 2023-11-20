@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public event Action onPopUpAlertOpen;
     public event Action onPopUpAlertClose;
     public event Action onTeoricoMascota;
+    public event Action onImageContentTeoricoMascota;
 
 
     public static GameManager instance;
@@ -74,10 +75,15 @@ public class GameManager : MonoBehaviour
         onPopUpAlertClose?.Invoke();
        
     }
+    public void MinimizeTeoricoImage()
+    {
+        onImageContentTeoricoMascota?.Invoke();
+    }
     public void Close()
     {
         Debug.Log("Closing app");
         Application.Quit();
     }
+
 
 }
