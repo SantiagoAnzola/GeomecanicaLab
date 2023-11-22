@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     private List<Sprite> imagenesLocales=null;
     Image lugarParaImagen=null;
     GameObject ContenedorLugarParaImagen = null;
+    public Animator lugarParaGift = null;
+    public TextMeshProUGUI titulo;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
@@ -33,21 +35,23 @@ public class DialogueManager : MonoBehaviour
 
     private GameObject boton;
     private GameObject check;
+    private RuntimeAnimatorController[] giftMaquinas;
+    
     // Start is called before the first frame update
     void Start()
     {
         
         sentences = new LinkedList<string>();
-        
+       
     }
 
-    public void StartDialogue(Dialogue dialogue, Sprite[] imagenes, Image espacioImagen, GameObject contenedorEspacioImagen, GameObject botonn, GameObject checkk)
+    public void StartDialogue(Dialogue dialogue, Sprite[] imagenes, Image espacioImagen, GameObject contenedorEspacioImagen, GameObject botonn, GameObject checkk, RuntimeAnimatorController [] giftsMaq)
     {
         nameText.text = dialogue.name;
         boton = botonn;
         check=checkk;
         sentences.Clear();
-
+        giftMaquinas= giftsMaq;
         foreach (string sentence in dialogue.sentences)
         {
             sentences.AddLast(sentence);
@@ -64,6 +68,7 @@ public class DialogueManager : MonoBehaviour
         anterior.interactable = false;
         count=1;
         ChangeImageOnClick();
+        ShowImage(count);
     }
 
     public void DisplayNextSentence()
@@ -146,23 +151,31 @@ public class DialogueManager : MonoBehaviour
         //dialogueText.text = currentSentence.Value;
     }
 
+    
 
     private void ShowImage(int index)
     {
-        
-        if (index > 0 && index <= imagenesLocales.Count && imagenesLocales[index-1] != null && lugarParaImagen!=null)
+        if (index > 0 && index <= imagenesLocales.Count && (imagenesLocales[index-1] != null)&& lugarParaImagen!=null)
         {
 
             ContenedorLugarParaImagen.transform.localScale = Vector3.one;
             lugarParaImagen.sprite = imagenesLocales[index-1];
-            Debug.Log("index: " + index);
+
+        }else if (index > 0 && index <= (giftMaquinas.Length) && (giftMaquinas[index - 1] != null))
+        {
+            lugarParaImagen.sprite = null;
+            ContenedorLugarParaImagen.transform.localScale = Vector3.one;
+
+            lugarParaGift.runtimeAnimatorController = giftMaquinas[index - 1];
+            titulo.text= currentSentence.Value;
         }
         else
         {
             if (lugarParaImagen != null)
             {
                 ContenedorLugarParaImagen.transform.localScale= Vector3.zero;
-                
+                lugarParaImagen.sprite = null;
+                lugarParaGift.runtimeAnimatorController=null;
             }
             
             return;
@@ -179,7 +192,6 @@ public class DialogueManager : MonoBehaviour
             check.transform.localScale = Vector3.one;
             boton.GetComponent<Image>().color = new Color32(90, 167, 219, 255);
         }
-        
         
         currentSentence =sentences.First;
         gameManager.Teorico();
