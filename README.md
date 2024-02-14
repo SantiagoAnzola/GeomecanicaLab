@@ -1,5 +1,6 @@
 # 📱 GeomecanicaLab 🥼
 
+ ⏳ _Descarga aqui[^1]_
 
 | Bienvenida | Menu | Teoria | Práctica | Escaner | Sección teoría |
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |
