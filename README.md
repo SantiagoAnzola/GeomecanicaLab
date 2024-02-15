@@ -1,17 +1,26 @@
-# 📱 GeomecanicaLab 🥼
-
- ⏳ _Descarga aqui[^1]_
-
-| Bienvenida | Menu | Teoria | Práctica | Escaner | Sección teoría |
-| ------------- | ------------- | ------------- |------------- |------------- |------------- |
-| <img width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/b36b130f-4e1a-4341-b635-b133f8884447" /> | <img height="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/208fa63c-d274-4f1c-ade5-c10d94e07b7c" /> | <img  height="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/aeda65e8-aa2c-4254-8b04-ec49ea6b8209" />  | <img  width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/66d8405b-9255-47fe-a5ef-934b211607e4" /> | <img  width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/df8fc18a-6d53-44fc-8c2d-9a031e0cd75a" /> | <img  width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/e66fd4fc-87b7-4018-8437-dd63d8d9d4d2" /> |
+# 📱 GeomecanicaLab 🥼 
 
 
+
+| | |
+|---|---|
+| <img width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/98469fc6-a4d7-4aee-954a-49c434407401"></img> | <img width="100%" src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/4cf4e890-aad4-4d71-a650-5a85e5d6f7bf"></img> |
+>[!TIP]
+>
+>⏳[Descarga aqui](https://unimilitareduco-my.sharepoint.com/:u:/g/personal/est_angela_useche_unimilitar_edu_co/EatkBd9f9BlMlFtVlTc_w_QBeYErfg5QNlZF0kzlXgTdTw?e=jCKMyr) [^1] 
+<br>
+<p align="center">
+  | <a href=READMEEN.md>English</a> | 
+    <span>Español</span> |
+</p>
+<br>
+
+## :hammer_and_wrench: Lenguajes y herramientas:
+<p align="center" > <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a>  <a href="https://unity.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="unity" width="40" height="40"/> </a> <a href="https://developer.vuforia.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/77f0d868-788a-47ef-bd38-b4954ec6677a" alt="Vuforia" height="40"/> </a></p>
 
 ## Descripción:
 GeomecánicaLab es un proyecto de realidad aumentada que ayuda a los estudiantes de ingeniería civil de la Universidad Militar Nueva Granada a comprender y utilizar las máquinas del laboratorio de Geomecánica.
 
-## Público objetivo:
 Este proyecto está dirigido a estudiantes de ingeniería civil de la Universidad Militar Nueva Granada que cursen asignaturas relacionadas con la geomecánica y que necesiten utilizar el laboratorio de Geomecánica.
 
 ## Características principales:
@@ -26,23 +35,16 @@ Este proyecto está dirigido a estudiantes de ingeniería civil de la Universida
   - Navega en el apartado teorico para entender en profundidad el laboratorio.
   - Escanea los marcadores de realidad aumentada disponibles a continuación ⏭️.
 
-    ![GEOMÉCANICA LAB - PRESENTACIÓN FINAL (3)](https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/b8ff9d27-70ff-4d61-9dcb-61853b76a1a6) 
+    ![GEOMÉCANICA LAB - PRESENTACIÓN FINAL (3)](https://github.com/SantiagoAnzola/GeomecanicaLab/assets/87992831/b8ff9d27-70ff-4d61-9dcb-61853b76a1a6)
+    
 
 **2. Uso:**
 
   - Abra la aplicación y apunte la cámara hacia un marcador de realidad aumentada.
   - La aplicación superpondrá un modelo 3D de la máquina correspondiente al marcador.
   - Interactúe con el modelo 3D para ver sus diferentes partes y obtener información sobre su funcionamiento.
-  - Acceda a la sección teórica para aprender sobre los conceptos de geomecánica relacionados con cada máquina.
+  - Acceda a la sección teórica para aprender sobre los conceptos de geomecánica relacionados al laboratorio.
 
-## 🔄 Contribuciones:
-
-Los usuarios pueden contribuir al proyecto de las siguientes maneras:
-
-  - Informando de errores o problemas con la aplicación.
-  - Sugiriendo nuevas funcionalidades o mejoras.
-  - Traduciendo la aplicación a otros idiomas.
-  - Creando nuevos modelos 3D de las máquinas del laboratorio.
 
 ## :accessibility: Licencia:
 
